@@ -11,6 +11,8 @@ I want to move all graphql logic to the client, so the SSR does not execute grap
 This may results in loading states in the UI, but makes separation of Nuxt + Backend easier.
 Also authentication with cookies are working.
 
+
+
 ## Learnings
 
 **@nuxtjs/apollo**: This module is developed for Nuxt 2 and does not work correctly.
@@ -26,3 +28,12 @@ v16, things can be upgraded.
 
 **plugin**: To get apollo to work in the frontend, the file `app/plugins/apollo.client.ts`
 has been created.
+
+
+## Directory structure
+
+- app: the frontend code of the application
+    - components: basic components you can use over the page
+    - islands: special components, which executes graphql and therefore are client only
+    - plugins: there the apollo plugin is specified
+    - types: there are the graphql response types defined (wip)
