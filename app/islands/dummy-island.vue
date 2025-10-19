@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useQuery } from '@vue/apollo-composable';
 import gql from 'graphql-tag';
-import type { AlbumsResponse } from '~/types/graphql';
+import { useDummyQuery } from '~~/types/graphql';
 
 const GET_USERS = gql`
   query {
@@ -13,7 +13,7 @@ const GET_USERS = gql`
 }
 `
 
-const { result, loading, error } = useQuery<AlbumsResponse>(GET_USERS)
+const { result, loading, error } = useDummyQuery()
 </script>
 
 <template>
@@ -21,5 +21,5 @@ const { result, loading, error } = useQuery<AlbumsResponse>(GET_USERS)
 
   <LoadingIndicator v-if="loading" />
   <GraphqlError :error="error" />
-  <AlbumList v-if="result" :albums="result.albums.data" />
+  <AlbumList v-if="result" :albums="result.albums?.data" />
 </template>

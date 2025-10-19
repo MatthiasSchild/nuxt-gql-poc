@@ -1,0 +1,8 @@
+query Dummy {
+    albums {
+    data {
+        id
+        title
+    }
+  }
+}

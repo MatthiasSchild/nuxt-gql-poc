@@ -36,4 +36,4 @@ has been created.
     - components: basic components you can use over the page
     - islands: special components, which executes graphql and therefore are client only
     - plugins: there the apollo plugin is specified
-    - types: there are the graphql response types defined (wip)
+- graphql: the graphql operations for the island components
