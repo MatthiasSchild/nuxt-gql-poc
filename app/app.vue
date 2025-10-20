@@ -1,10 +1,13 @@
 <script setup lang="ts">
-import DummyIsland from './islands/dummy-island.vue';
+import { useDummyQuery } from '~~/types/graphql';
+
+const { result, loading, error } = useDummyQuery()
 </script>
 
 <template>
-  <h1>Nuxt GraphQL POC</h1>
-  <ClientOnly>
-    <DummyIsland />
-  </ClientOnly>
+  <h2>Dummy</h2>
+
+  <LoadingIndicator v-if="loading" />
+  <GraphqlError :error="error" />
+  <ProgrammingLanguageList v-if="result" :languages="result.programmingLanguages" />
 </template>
